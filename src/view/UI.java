@@ -5,7 +5,7 @@
  */
 package view;
 
-import methods.AddMatrix;
+import methods.MatrixMethods;
 import utils.Helpers;
 
 /**
@@ -61,10 +61,25 @@ public class UI extends javax.swing.JFrame {
         });
 
         jButton2.setText("Odejmowanie");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Mnożenie");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Dzielenie");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jTextField1.setText("0");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -188,7 +203,7 @@ public class UI extends javax.swing.JFrame {
 
         /**
          * TODO
-         * 
+         *
          * Jak wyżej z tymi wartościami liczbowymi
          */
         // pobranie wartości macierzy i sparsowanie na tablice
@@ -198,14 +213,107 @@ public class UI extends javax.swing.JFrame {
         //Stworzenie macierzy
         final int[][] firstMatrix = Helpers.setMatrix(firstMatrixData, rowsCount, colsCount);
         final int[][] secondMatrix = Helpers.setMatrix(secondMatrixData, rowsCount, colsCount);
-        
+
         //Stworzenie obiektu klasy i wywołanie metody dodawania
-        AddMatrix addMatrix = new AddMatrix(firstMatrix, secondMatrix, rowsCount, colsCount);
+        MatrixMethods matrixMethods = new MatrixMethods(
+                firstMatrix,
+                secondMatrix,
+                rowsCount,
+                colsCount
+        );
         //Przypisanie macierzy wynikowoej do zmiennej
-        String score = addMatrix.add();
+        String score = matrixMethods.add();
         jTextArea1.setText(score);
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        /**
+         * TODO
+         *
+         * maskowanie żeby było można wprowadzać liczby (bład parsowania na
+         * int-a jak się wpisze znak, + jakiś komunikat jak nie poda się którejś
+         * z wartości
+         */
+        // pobranie wartośći jTextField-ów i sparswoanie na inty
+        int rowsCount = Integer.parseInt(jTextField1.getText());
+        int colsCount = Integer.parseInt(jTextField2.getText());
+
+        /**
+         * TODO
+         *
+         * Jak wyżej z tymi wartościami liczbowymi
+         */
+        // pobranie wartości macierzy i sparsowanie na tablice
+        int[] firstMatrixData = Helpers.parseInput(jTextField3.getText());
+        int[] secondMatrixData = Helpers.parseInput(jTextField4.getText());
+
+        //Stworzenie macierzy
+        int[][] firstMatrix = Helpers.setMatrix(firstMatrixData, rowsCount, colsCount);
+        int[][] secondMatrix = Helpers.setMatrix(secondMatrixData, rowsCount, colsCount);
+
+        //Stworzenie obiektu klasy i wywołanie metody dodawania
+        MatrixMethods matrixMethods = new MatrixMethods(
+                firstMatrix,
+                secondMatrix,
+                rowsCount,
+                colsCount
+        );
+        //Przypisanie macierzy wynikowoej do zmiennej
+        String score = matrixMethods.div();
+        jTextArea1.setText(score);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        int rowsCount = Integer.parseInt(jTextField1.getText());
+        int colsCount = Integer.parseInt(jTextField2.getText());
+
+        /**
+         * TODO
+         *
+         * Jak wyżej z tymi wartościami liczbowymi
+         */
+        // pobranie wartości macierzy i sparsowanie na tablice
+        int[] firstMatrixData = Helpers.parseInput(jTextField3.getText());
+        int[] secondMatrixData = Helpers.parseInput(jTextField4.getText());
+
+        //Stworzenie macierzy
+        int[][] firstMatrix = Helpers.setMatrix(firstMatrixData, rowsCount, colsCount);
+        int[][] secondMatrix = Helpers.setMatrix(secondMatrixData, rowsCount, colsCount);
+
+        //Stworzenie obiektu klasy i wywołanie metody dodawania
+        MatrixMethods matrixMethods = new MatrixMethods(
+                firstMatrix,
+                secondMatrix,
+                rowsCount,
+                colsCount
+        );
+        //Przypisanie macierzy wynikowoej do zmiennej
+        String score = matrixMethods.multi();
+        jTextArea1.setText(score);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        int rowsCount = Integer.parseInt(jTextField1.getText());
+        int colsCount = Integer.parseInt(jTextField2.getText());
+        int[] firstMatrixData = Helpers.parseInput(jTextField3.getText());
+        int[] secondMatrixData = Helpers.parseInput(jTextField4.getText());
+
+        //Stworzenie macierzy
+        int[][] firstMatrix = Helpers.setMatrix(firstMatrixData, rowsCount, colsCount);
+        int[][] secondMatrix = Helpers.setMatrix(secondMatrixData, rowsCount, colsCount);
+
+        //Stworzenie obiektu klasy i wywołanie metody dodawania
+        MatrixMethods matrixMethods = new MatrixMethods(
+                firstMatrix,
+                secondMatrix,
+                rowsCount,
+                colsCount
+        );
+        //Przypisanie macierzy wynikowoej do zmiennej
+        String score = matrixMethods.sub();
+        jTextArea1.setText(score);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

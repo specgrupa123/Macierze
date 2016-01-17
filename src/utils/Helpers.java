@@ -39,7 +39,7 @@ public class Helpers {
     public static int[] parseInput(String inputData) {
         int[] parsedInput = new int[inputData.length()];
 
-        for (int i = 0; i < inputData.length() - 1; i++) {
+        for (int i = 0; i < inputData.length(); i++) {
             String str = Character.toString(inputData.charAt(i));
             parsedInput[i] = Integer.parseInt(str);
         }
