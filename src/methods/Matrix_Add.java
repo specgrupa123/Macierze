@@ -8,22 +8,23 @@ public class Matrix_Add {
     int matrix1[][], matrix2[][], sum[][];
     int row, column;
 
-    public void create() {
+    public void create(String rows, String cols) {
 
-        scan = new Scanner(System.in);
+        //scan = new Scanner(System.in);
 
-        System.out.println("Dodawanie macierzy");
+        //System.out.println("Dodawanie macierzy");
 
-        System.out.println("\nWprowadz liczbe wierszy i kolumn");
-        row = Integer.parseInt(scan.nextLine());
-        column = Integer.parseInt(scan.nextLine());
+        //System.out.println("\nWprowadz liczbe wierszy i kolumn");
+        //row = Integer.parseInt(scan.nextLine());
+        //column = Integer.parseInt(scan.nextLine());
 
         matrix1 = new int[row][column];
         matrix2 = new int[row][column];
         sum = new int[row][column];
 
-        System.out.println("Wprowadz pierwsza macierz");
+        //System.out.println("Wprowadz pierwsza macierz");
 
+        
         for (int i = 0; i < row; i++) {
 
             for (int j = 0; j < column; j++) {
