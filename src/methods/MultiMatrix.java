@@ -2,31 +2,29 @@ package methods;
 
 import java.util.Scanner;
 
-public class Matrix_Add {
+public class MultiMatrix {
 
     Scanner scan;
-    int matrix1[][], matrix2[][], sum[][];
+    int matrix1[][], matrix2[][], multi[][];
     int row, column;
 
-    public void create(String rows, String cols) {
+    void create() {
 
-        //scan = new Scanner(System.in);
-        
-        // TESTOWY COMMIT
+        scan = new Scanner(System.in);
 
-        //System.out.println("Dodawanie macierzy");
+        System.out.println("Matrix Multiplication");
 
-        //System.out.println("\nWprowadz liczbe wierszy i kolumn");
-        //row = Integer.parseInt(scan.nextLine());
-        //column = Integer.parseInt(scan.nextLine());
+        // First Matrix Creation..
+        System.out.println("\nEnter number of rows & columns");
+        row = Integer.parseInt(scan.nextLine());
+        column = Integer.parseInt(scan.nextLine());
 
         matrix1 = new int[row][column];
         matrix2 = new int[row][column];
-        sum = new int[row][column];
+        multi = new int[row][column];
 
-        //System.out.println("Wprowadz pierwsza macierz");
+        System.out.println("Enter the data for first matrix :");
 
-        
         for (int i = 0; i < row; i++) {
 
             for (int j = 0; j < column; j++) {
@@ -35,7 +33,8 @@ public class Matrix_Add {
             }
         }
 
-        System.out.println("Wprowadz druga macierz");
+        // Second Matrix Creation..
+        System.out.println("Enter the data for second matrix :");
 
         for (int i = 0; i < row; i++) {
 
@@ -46,9 +45,9 @@ public class Matrix_Add {
         }
     }
 
-    public void display() {
+    void display() {
 
-        System.out.println("\nPierwsza macierz");
+        System.out.println("\nThe First Matrix is :");
 
         for (int i = 0; i < row; i++) {
 
@@ -59,7 +58,7 @@ public class Matrix_Add {
             System.out.println();
         }
 
-        System.out.println("\n\nDruga macierz");
+        System.out.println("\n\nThe Second Matrix is :");
 
         for (int i = 0; i < row; i++) {
 
@@ -71,25 +70,26 @@ public class Matrix_Add {
         }
     }
 
-    public void add() {
+    void multi() {
 
         for (int i = 0; i < row; i++) {
 
             for (int j = 0; j < column; j++) {
 
-                sum[i][j] = matrix1[i][j] + matrix2[i][j];
+                multi[i][j] = matrix1[i][j] * matrix2[i][j];
             }
         }
 
-        System.out.println("\n\npo dodaniu macierzy: ");
+        System.out.println("\n\nThe Multiplication is :");
 
         for (int i = 0; i < row; i++) {
 
             for (int j = 0; j < column; j++) {
 
-                System.out.print("\t" + sum[i][j]);
+                System.out.print("\t" + multi[i][j]);
             }
             System.out.println();
         }
     }
+
 }

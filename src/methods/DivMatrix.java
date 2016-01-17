@@ -2,7 +2,7 @@ package methods;
 
 import java.util.Scanner;
 
-public class Matrix_Div {
+public class DivMatrix {
 
     Scanner scan;
     int matrix1[][], matrix2[][], div[][];

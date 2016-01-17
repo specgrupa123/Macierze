@@ -5,7 +5,8 @@
  */
 package view;
 
-import methods.Matrix_Add;
+import methods.AddMatrix;
+import utils.Helpers;
 
 /**
  *
@@ -65,11 +66,14 @@ public class UI extends javax.swing.JFrame {
 
         jButton4.setText("Dzielenie");
 
+        jTextField1.setText("0");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
+
+        jTextField2.setText("0");
 
         jLabel1.setText("Ilość wierszy");
 
@@ -142,7 +146,7 @@ public class UI extends javax.swing.JFrame {
                             .addComponent(jButton2)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(22, 22, 22)
                         .addComponent(jButton3))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel3)
@@ -171,10 +175,36 @@ public class UI extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        String rows = jTextField1.getText();
-        String cols = jTextField2.getText();
+        /**
+         * TODO
+         *
+         * maskowanie żeby było można wprowadzać liczby (bład parsowania na
+         * int-a jak się wpisze znak, + jakiś komunikat jak nie poda się którejś
+         * z wartości
+         */
+        // pobranie wartośći jTextField-ów i sparswoanie na inty
+        int rowsCount = Integer.parseInt(jTextField1.getText());
+        int colsCount = Integer.parseInt(jTextField2.getText());
 
-        Matrix_Add mAdd = new Matrix_Add();
+        /**
+         * TODO
+         * 
+         * Jak wyżej z tymi wartościami liczbowymi
+         */
+        // pobranie wartości macierzy i sparsowanie na tablice
+        int[] firstMatrixData = Helpers.parseInput(jTextField3.getText());
+        int[] secondMatrixData = Helpers.parseInput(jTextField4.getText());
+
+        //Stworzenie macierzy
+        final int[][] firstMatrix = Helpers.setMatrix(firstMatrixData, rowsCount, colsCount);
+        final int[][] secondMatrix = Helpers.setMatrix(secondMatrixData, rowsCount, colsCount);
+        
+        //Stworzenie obiektu klasy i wywołanie metody dodawania
+        AddMatrix addMatrix = new AddMatrix(firstMatrix, secondMatrix, rowsCount, colsCount);
+        //Przypisanie macierzy wynikowoej do zmiennej
+        String score = addMatrix.add();
+        jTextArea1.setText(score);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

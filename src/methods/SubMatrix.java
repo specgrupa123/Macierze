@@ -2,17 +2,17 @@ package methods;
 
 import java.util.Scanner;
 
-public class Matrix_Multi {
+public class SubMatrix {
 
     Scanner scan;
-    int matrix1[][], matrix2[][], multi[][];
+    int matrix1[][], matrix2[][], sub[][];
     int row, column;
 
     void create() {
 
         scan = new Scanner(System.in);
 
-        System.out.println("Matrix Multiplication");
+        System.out.println("Matrix Subtraction");
 
         // First Matrix Creation..
         System.out.println("\nEnter number of rows & columns");
@@ -21,7 +21,7 @@ public class Matrix_Multi {
 
         matrix1 = new int[row][column];
         matrix2 = new int[row][column];
-        multi = new int[row][column];
+        sub = new int[row][column];
 
         System.out.println("Enter the data for first matrix :");
 
@@ -70,23 +70,23 @@ public class Matrix_Multi {
         }
     }
 
-    void multi() {
+    void sub() {
 
         for (int i = 0; i < row; i++) {
 
             for (int j = 0; j < column; j++) {
 
-                multi[i][j] = matrix1[i][j] * matrix2[i][j];
+                sub[i][j] = matrix1[i][j] - matrix2[i][j];
             }
         }
 
-        System.out.println("\n\nThe Multiplication is :");
+        System.out.println("\n\nThe Subtraction is :");
 
         for (int i = 0; i < row; i++) {
 
             for (int j = 0; j < column; j++) {
 
-                System.out.print("\t" + multi[i][j]);
+                System.out.print("\t" + sub[i][j]);
             }
             System.out.println();
         }
